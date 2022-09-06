@@ -33,9 +33,9 @@ public class Test01Re {
         	// choices 의 원소 값에 따른 점수 추가
         	if(choice < 4) {
         		switch(choice) {
-        			case 1 : result.put(survey[i].substring(0,1), result.get(survey[i].substring(0,1))+3); break; 
-        			case 2 : result.put(survey[i].substring(0,1), result.get(survey[i].substring(0,1))+2); break;
-        			case 3 : result.put(survey[i].substring(0,1), result.get(survey[i].substring(0,1))+1); break;
+        		case 1 : result.put(survey[i].substring(0,1), result.get(survey[i].substring(0,1))+3); break; 
+        		case 2 : result.put(survey[i].substring(0,1), result.get(survey[i].substring(0,1))+2); break;
+        		case 3 : result.put(survey[i].substring(0,1), result.get(survey[i].substring(0,1))+1); break;
         		}
         	} else if(choice > 4){
         		switch(choice) {

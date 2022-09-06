@@ -32,45 +32,28 @@ public class Solution {
         // 유저 별 신고 당한 횟수 (초기값 0)
         for(String i : id_list) {
         	banCnt.put(i, 0);
-        	aCnt.put(i, 0);
+        	aCnt.put(i, 0); //answer에 담아줄 값
         }
-        // 유저 별 신고 한 유저 담아주기
-        for(String b : report) {
-        	
-        	String[] bu = b.split(" ");
-        	int bc = banCnt.get(bu[1]);
-        	
-        	banCnt.put(bu[1], bc + 1);
-        	
-        }
-        
     	
         //중복되는지 검사 
 		for(int i = 0; i < report.length; i++) {
+			String[] bu = report[i].split(" ");
+        	int bc = banCnt.get(bu[1]);
+			
 			int repOvl = -1;
 			for(int j = 0; j < report.length; j++) {
 				if(report[i].equals(report[j])) {
 					++repOvl;
 				}
 			}
-			if(i>0) {
-				if(i==1) {
-					if(report[i].equals(report[0])) {
+			if(i>0) { //변경한 부분 -> 코드 2개로 나뉘어져있던걸 하나로 합침
+				for(int x = 0; x < i; x++) {
+					if(report[i].equals(report[x])) {
 						repOvl = 0;
-					}
-				} else {
-					for(int x = 0; x < i; x++) {
-						if(report[i].equals(report[x])) {
-							repOvl = 0;
-						}
 					}
 				}
 			}
-			String[] bu = report[i].split(" ");
-			int bc = banCnt.get(bu[1]);
-			banCnt.put(bu[1], bc - repOvl);
-			
-			
+			banCnt.put(bu[1], bc + 1 - repOvl);
 		}
     	
 		//신고당한 회수 k번 이상이면...
@@ -78,28 +61,14 @@ public class Solution {
 			if(banCnt.get(id_list[i])>=k) {
 				for(int j = 0; j < report.length; j++) {
 					if(report[j].split(" ")[1].equals(id_list[i])) {
-						int bcnt = aCnt.get(report[j].split(" ")[0]);
-						
-						if(j>0) {
-							if(j==1) {
-								if(report[j].equals(report[0])) {
-									
-								} else {
-									aCnt.put(report[j].split(" ")[0], bcnt + 1);
-								}
-							} else {
-								for(int x = 0; x < j; x++) {
-									if(report[j].equals(report[x])) {
-										
-									} else {
-										aCnt.put(report[j].split(" ")[0], bcnt + 1);
-									}
-								}
+						if(j>0) { 
+							for(int x = 0; x < j; x++) {
+								if(report[j].equals(report[x])) {
+									aCnt.put(report[j].split(" ")[0], aCnt.get(report[j].split(" ")[0]) - 1);
+								} 
 							}
-						} else {
-							aCnt.put(report[j].split(" ")[0], bcnt + 1);
 						}
-						
+						aCnt.put(report[j].split(" ")[0], aCnt.get(report[j].split(" ")[0]) + 1);
 					}
 				}
 			}
@@ -114,6 +83,10 @@ public class Solution {
         return answer;
         
     }//solution
+    
+    public void userCnt() {
+    	
+    }
 	
 }//class
 
