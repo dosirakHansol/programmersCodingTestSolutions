@@ -16,15 +16,16 @@ public class Test01Re {
         
         // 지표별 점수를 담아 줄 Map 생성
         HashMap<String, Integer> result = new HashMap<String, Integer>();
-        result.put("R", 0);
-        result.put("T", 0);
-        result.put("C", 0);
-        result.put("F", 0);
-        result.put("J", 0);
-        result.put("M", 0);
-        result.put("A", 0);
-        result.put("N", 0);
-        
+//        result.put("R", 0);
+//        result.put("T", 0);
+//        result.put("C", 0);
+//        result.put("F", 0);
+//        result.put("J", 0);
+//        result.put("M", 0);
+//        result.put("A", 0);
+//        result.put("N", 0);
+        String[] persnality = {"R","T","C","F","J","M","A","N"};
+        for(String p : persnality) {result.put(p, 0);}
         
         for(int i = 0; i < survey.length; i++) {
         	
