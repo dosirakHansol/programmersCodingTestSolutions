@@ -22,22 +22,104 @@ public class Solution {
 	//기대값 bat.y.abcdefghi
 	public String solution(String new_id) {
 		
-		new_id = new_id.toLowerCase();
-		new_id = new_id.replaceAll("[^a-z0-9-_.]", "");
-		while(new_id.contains("..")) {new_id = new_id.replace("..", ".");}
-		new_id = new_id.replaceAll("^[.]", "");
-		new_id = new_id.replaceAll("[.]$", "");
-		if("".equals(new_id)) new_id = "a";
-		if(new_id.length() > 15) new_id = new_id.substring(0, 15);
-		new_id = new_id.replaceAll("[.]$", "");
-		if(new_id.length() < 3) {
-			char lastC = new_id.charAt(new_id.length()-1);
-			while(new_id.length() < 3) {new_id = new_id + lastC;}
-		}
-        
-        
-		String answer = new_id;
+//		new_id = new_id.toLowerCase();
+//		new_id = new_id.replaceAll("[^a-z0-9-_.]", "");
+//		while(new_id.contains("..")) {new_id = new_id.replace("..", ".");}
+//		new_id = new_id.replaceAll("^[.]", "");
+//		new_id = new_id.replaceAll("[.]$", "");
+//		if("".equals(new_id)) new_id = "a";
+//		if(new_id.length() > 15) new_id = new_id.substring(0, 15);
+//		new_id = new_id.replaceAll("[.]$", "");
+//		if(new_id.length() < 3) {
+//			char lastC = new_id.charAt(new_id.length()-1);
+//			while(new_id.length() < 3) {new_id = new_id + lastC;}
+//		}
+		String answer = new recommandID(new_id)
+				.stepOne()
+				.stepTwo()
+				.stepThree()
+				.stepFour()
+				.stepFive()
+				.stepSix()
+				.stepSeven();
+		
+		
         return answer;
     }
 	
+	private static class recommandID {
+		private String id;
+		
+		recommandID(String id){
+			this.id = id;
+		}
+		
+		private recommandID stepOne() {
+			id = id.toLowerCase();
+			return this;
+		}
+		
+		private recommandID stepTwo() {
+			id = id.replaceAll("[^a-z0-9-_.]", "");
+			return this;
+		}
+		
+		private recommandID stepThree() {
+			while(id.contains("..")) {id = id.replace("..", "."); }
+			return this;
+		}
+		
+		private recommandID stepFour() {
+			id = id.replaceAll("^[.]", "").replaceAll("[.]$", "");
+			return this;
+		}
+		
+		private recommandID stepFive() {
+			if("".equals(id)) id = "a";
+			return this;
+		}
+		
+		private recommandID stepSix() {
+			if(id.length() > 15) id = id.substring(0, 15);
+			id = id.replaceAll("[.]$", "");
+			return this;
+		}
+		
+		private String stepSeven() {
+			if(id.length() < 3) {
+				char lastC = id.charAt(id.length()-1);
+				while(id.length() < 3) {id = id + lastC;}
+			}
+			return id;
+		}
+	}
+	
 }
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
