@@ -21,6 +21,7 @@ public class Main {
 		
         String answer = "김서방은 " + location + "에 있다";
         return answer;
+        
     }
 
 }
