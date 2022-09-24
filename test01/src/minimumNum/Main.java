@@ -8,22 +8,24 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		int[] arr = {3,2,1,4,3,1};
-		
-		System.out.println(solution(arr));
+		int[] arr = {1,5,7,3,2,6};
+		int[] answer = solution(arr);
+//		for(int i = 0; i < solution(arr).length;++i) {
+////			System.out.println(answer[i]);
+//		}
 		
 	}
 	
 	public static int[] solution(int[] arr) {
-		int min = 0;
+		int min = arr[0];
 		List list = new ArrayList();
 		
 		if(arr.length > 1) {
 			
 			for(int i = 1; i < arr.length; ++i) {
 				
-				if(arr[i-1] < arr[i]) {
-					min = arr[i-1];
+				if(min < arr[i]) {
+					min = min;
 				} else {
 					min = arr[i];
 				}
@@ -40,7 +42,6 @@ public class Main {
 			
 			for(int i = 0; i < list.size(); ++i) {
 				answer[i] = (int) list.get(i);
-				System.out.println(answer[i]);
 			}
 			
 			return answer;
