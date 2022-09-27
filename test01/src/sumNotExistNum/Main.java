@@ -13,16 +13,19 @@ public class Main {
 		
 	}
 	
-	int i = 0;
+	public static int i;
 	
 	public static int solution(int[] numbers) {
 		
         int answer = 0;
         
-        Main a = new Main();
+        Main m = new Main();
         
-        for(int i = 1; i < 11; ++i) {
-        	answer += Arrays.stream(numbers).anyMatch(x -> x == a.i) ? 0 : i; 
+        for(i = 1; i < 10; ++i) {
+        	answer += Arrays.stream(numbers).anyMatch(x -> x == i) ? 0 : i;
+//        	if(!IntStream.of(numbers).anyMatch(x -> x == i)) {
+//        		System.out.println(i + "는 없다!");
+//        	}
         }
         
         return answer;
