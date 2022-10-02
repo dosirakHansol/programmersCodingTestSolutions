@@ -9,15 +9,15 @@ public class Main {
 	}
 	
 	public static long solution(int price, int money, int count) {
-        
-		Long answer = 0;
+		
+		long sum = money;
 		
         for(int i = 1; i <= count; ++i) {
-        	money -= price * i;
+        	sum -= price * i;
         }
         
-        if(money >= 0) return 0;
-        else return Math.abs(money); 
+        if(sum >= 0) return 0;
+        else return Math.abs(sum); 
         
     }
 
