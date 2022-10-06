@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		System.out.println(solution("  tRy hello  WORLD    "));
+		System.out.println(solution(" t ry hello world      "));
 		
 	}
 	
@@ -32,8 +32,10 @@ public class Main {
 			}
 		}
 		
+		int x = s.length() - answer.length();
+		
 		if(s.length() != answer.length()) {
-			for(int i = 0; i < s.length() - answer.length(); i++) {
+			for(int i = 0; i < x; i++) {
 				answer += " ";
 			}
 		}
