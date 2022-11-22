@@ -12,17 +12,11 @@ public class Main {
 	}
 	
 	public static int solution(int n) {
-		
 		String str = Integer.toString(n, 3);
-		String[] strArr = str.split("");
-		ArrayList<String> a = new ArrayList<String>();
-		a = (ArrayList<String>) Arrays.asList(strArr);
+		StringBuffer sb = new StringBuffer(str);
+		String reversedStr = sb.reverse().toString();
+		int answer = Integer.parseInt(reversedStr,3);
 		
-		for(String i : a) {
-			System.out.println(i);
-		}
-		
-        int answer = 0;
         return answer;
     }
 	
