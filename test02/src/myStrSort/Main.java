@@ -1,51 +1,31 @@
 package myStrSort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		String[] arr = {"a", "b", "c"};
-		
-		System.out.println(solution(arr, 1));
+		String[] arr = {"abzcd","cdzab","abzfg","abzaa","abzbb","bbzaa"};
+		String[] arr2 = {"sun", "bed", "car"};
+		System.out.println(solution(arr, 2));
+//		System.out.println(solution(arr2, 1));
 		
 	}
 	
 	public static String[] solution(String[] strings, int n) {
-        
-        int l = strings.length;
-        
-        String[] answer = new String[l];
-        
-        String[] arr1 = new String[l];
-        String[] arr2 = new String[l];
-        
-        for(int i = 0; i < l; i++) {
-        	if(strings[i].length() > 1) {
-        		arr1[i] = new StringBuffer(strings[i].substring(0, n+1)).reverse().toString();
-        		arr2[i] = strings[i].substring(n);      
-        		System.out.println(arr1[i]);
-        		System.out.println(arr2[i]);
-        	} else {
-        		arr1[i] = "";
-        		arr2[i] = strings[i];
-        	}
+		String[] answer = {};
+        ArrayList<String> arr = new ArrayList<>();
+        for (int i = 0; i < strings.length; i++) {
+            arr.add("" + strings[i].charAt(n) + strings[i]);
         }
-
-        Arrays.sort(arr1);
-        Arrays.sort(arr2);
-        
-        for(int i = 0; i < l; i++) {
-        	if(strings[i].length() > 1) {
-        		answer[i] = new StringBuffer(arr1[i].substring(1)).reverse().toString();
-        		answer[i] += arr2[i];
-        	} else {
-        		answer[i] = arr2[i];
-        	}
-        	System.out.println(answer[i]);
+        Collections.sort(arr);
+        answer = new String[arr.size()];
+        for (int i = 0; i < arr.size(); i++) {
+            answer[i] = arr.get(i).substring(1, arr.get(i).length());
         }
-        
         return answer;
     }
 
