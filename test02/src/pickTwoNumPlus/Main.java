@@ -3,6 +3,7 @@ package pickTwoNumPlus;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.TreeSet;
 
 public class Main {
 
@@ -16,7 +17,7 @@ public class Main {
 	
 	public static int[] solution(int[] numbers) {
         
-        HashSet<Integer> set = new HashSet<Integer>();
+        TreeSet<Integer> set = new TreeSet<Integer>();
         
         for(int i = 0; i < numbers.length-1; i++) {
         	for(int j = i+1; j < numbers.length; j++) {
@@ -31,7 +32,7 @@ public class Main {
         	intArr[i] = (int) iter.next();
         }
         
-        Arrays.sort(intArr);
+//        Arrays.sort(intArr);
         
         int[] answer = new int[intArr.length];
         
