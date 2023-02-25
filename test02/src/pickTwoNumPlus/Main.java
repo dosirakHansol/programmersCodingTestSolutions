@@ -8,7 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		int[] arr = {2,1,3,4,1};
+		int[] arr = {5,0,2,7};
 		
 		System.out.println(Arrays.toString(solution(arr)));
 		
@@ -16,27 +16,27 @@ public class Main {
 	
 	public static int[] solution(int[] numbers) {
         
-        HashSet<String> set = new HashSet<String>();
+        HashSet<Integer> set = new HashSet<Integer>();
         
         for(int i = 0; i < numbers.length-1; i++) {
         	for(int j = i+1; j < numbers.length; j++) {
-        		set.add(Integer.toString(numbers[i] + numbers[j]));
+        		set.add(numbers[i] + numbers[j]);
         	}
         }
 
-        String[] strArr = new String[set.size()];
+        int[] intArr = new int[set.size()];
         Iterator iter = set.iterator();
         
         for(int i = 0; i < set.size(); i++) {
-        	strArr[i] = (String) iter.next();
+        	intArr[i] = (int) iter.next();
         }
         
-        Arrays.sort(strArr);
+        Arrays.sort(intArr);
         
-        int[] answer = new int[strArr.length];
+        int[] answer = new int[intArr.length];
         
         for(int i = 0; i < answer.length; i++) {
-        	answer[i] = Integer.parseInt(strArr[i]);
+        	answer[i] = intArr[i];
         }
         
         return answer;
