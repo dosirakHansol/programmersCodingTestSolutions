@@ -8,7 +8,7 @@ public class Main {
 	
 		int[] arr = {160, 150, 140, 60, 50, 40};
 		
-		System.out.println(solution(arr,200));
+		System.out.println(solution2(arr,200));
 	
 	}
 	
@@ -48,6 +48,26 @@ public class Main {
         }
         
         return cnt;
+        
+    }
+	
+	public static int solution2(int[] people, int limit) {
+		
+		int boat = 0, current = people.length - 1,another = 0;
+		
+	    Arrays.sort(people);
+	    
+	    int right = people.length - 1;
+        int left = 0;
+	    
+	    while (right >= left) {
+	        if (people[current] + people[left] <= limit) {
+	          another++;
+	        }
+	        current--;
+	        boat++;
+	      }
+	    return boat;
         
     }
 
