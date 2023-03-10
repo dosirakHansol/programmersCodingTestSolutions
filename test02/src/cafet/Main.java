@@ -21,5 +21,9 @@ public class Main {
         //stash_test02
         //stash_test02
     }
+	
+	public void stashTest01() {
+		System.out.println("hello stash!!");
+	}
 
 }
