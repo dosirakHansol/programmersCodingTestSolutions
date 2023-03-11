@@ -53,21 +53,22 @@ public class Main {
 	
 	public static int solution2(int[] people, int limit) {
 		
-		int boat = 0, current = people.length - 1,another = 0;
-		
-	    Arrays.sort(people);
-	    
-	    int right = people.length - 1;
+		int answer = 0;
+
+        Arrays.sort(people);
+
+        int right = people.length - 1;
         int left = 0;
-	    
-	    while (right >= left) {
-	        if (people[current] + people[left] <= limit) {
-	          another++;
-	        }
-	        current--;
-	        boat++;
-	      }
-	    return boat;
+
+        while (right >= left) {
+            int weight = people[right--];
+            if (weight + people[left] <= limit) {
+              left++;
+            }
+            answer++;
+          }
+
+        return answer;
         
     }
 
