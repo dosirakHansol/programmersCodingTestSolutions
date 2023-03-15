@@ -17,53 +17,28 @@ public class Main {
 	
 	public static int solution(int[][] dots) {
         int answer = 0;
-        
-        int l = dots.length;
-        
-        List<Double> list = new ArrayList<Double>();
-        Set<Double> set = new HashSet<Double>();
-        
-        for(int i = 0; i < l-1; i++) {
-        	int x1 = dots[i][0];
-        	int y1 = dots[i][1];
-        	for(int j = i+1; j < l; j++) {
-        		int x2 = dots[j][0];
-        		int y2 = dots[j][1];
-        		
-        		double x = 0;
-        		double y = 0;
-        		
-        		int c = 0;
-        		
-        		if(x1!=x2 && y1!=y2) {
-        			if(x1 > x2){
-        				x = x1 - x2;
-        				y = y1 - y2;
-        			} else {
-        				x = x2 - x1;
-        				y = y2 - y1;        			
-        			}
-        			list.add(y/x);
-        			set.add(y/x);
-        		} else if(x1==x2) {
-        			list.add(0.00);
-        			set.add(0.00);
-        		} else { //y1==y2
-        			list.add(0.0);
-        			set.add(0.0);
-        		}
-        	}
+        for(int i =0; i<dots.length;i++) {
+
+
+                float temp =기울기(dots[i],dots[(i+1)%4]);
+                float temp2 =기울기(dots[(i+2)%4],dots[(i+3)%4]);
+
+                if(temp==temp2) {
+                    answer = 1;
+                }
+
+
+
         }
-        
-        int judge = list.size() - set.size();
-        
-        if(judge == 0) {
-        	answer = 0;
-        }else {
-        	answer = 1;
-        }
-        
         return answer;
+    }
+    public static float 기울기(int[]a1,int[]a2) {
+        float 분모,분자;
+
+            분모= a1[0]-a2[0];
+            분자= a1[1]-a2[1];
+
+        return 분자/분모;
     }
 
 }
