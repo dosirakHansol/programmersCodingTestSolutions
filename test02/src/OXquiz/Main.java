@@ -31,7 +31,6 @@ public class Main {
 			
 			if(sum == _sum) answer[i] = "O"; 
 			else answer[i] = "X";
-			System.out.println(answer[i]);
 		}
 		
 		return answer;
