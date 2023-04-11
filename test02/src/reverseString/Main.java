@@ -7,13 +7,13 @@ public class Main {
 	}
 	
 	public static String solution(String my_string) {
-        StringBuffer sb = new StringBuffer();
+        StringBuffer sb = new StringBuffer(my_string);
         
-        for(int i = my_string.length() - 1; i > -1 ; i--){
-            sb.append(Character.toString(my_string.charAt(i)));
-        }
+//        for(int i = my_string.length() - 1; i > -1 ; i--){
+//            sb.append(Character.toString(my_string.charAt(i)));
+//        }
         
-        return sb.toString();
+        return sb.reverse().toString();
     }
 
 }
