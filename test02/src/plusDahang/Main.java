@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(solution("0"));
+		System.out.println(solution("0x + 2x + 0 + 2"));
 	}
 	
 	public static String solution(String polynomial) {
